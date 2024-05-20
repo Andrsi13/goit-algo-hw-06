@@ -53,6 +53,26 @@ pos = {
     "Південний вїзд": (3000, 500),
 }
 
+# Аналіз основних характеристик графа
+
+# Кількість вершин
+num_nodes = G.number_of_nodes()
+print(f"Кількість вершин: {num_nodes}")
+
+# Кількість ребер
+num_edges = G.number_of_edges()
+print(f"Кількість ребер: {num_edges}")
+
+# Ступінь кожної вершини
+degrees = dict(G.degree())
+print("Ступінь вершин:")
+for node, degree in degrees.items():
+    print(f"   {node}: {degree}")
+
+# Середній ступінь вершин
+average_degree = sum(degrees.values()) / num_nodes
+print(f"Середній ступінь вершини: {average_degree:.2f}")
+
 # Малюємо граф
 plt.figure(figsize=(10, 6))
 nx.draw(G, pos, with_labels=True, node_size=2000, node_color="skyblue", font_size=8, font_weight="bold", edge_color="gray")
@@ -62,3 +82,5 @@ nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
 # Показуємо графік
 plt.title("Транспортна мережа міста")
 plt.show()
+
+
